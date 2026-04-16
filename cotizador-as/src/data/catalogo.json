@@ -1,0 +1,1389 @@
+{
+  "version": "1.0",
+  "fecha": "2026-04",
+  "materiales": [
+    {
+      "id": 1,
+      "material": "LAMINA DE ALUMINIO PLATA BRILLANTE",
+      "costo": 1900.0,
+      "medida": "1,22X2,44",
+      "proveedor": "PLASCO",
+      "categoria": "laminas_acrilicos"
+    },
+    {
+      "id": 2,
+      "material": "LAMINA DE ALUMINIO CLEAR BRITE BRUSHED",
+      "costo": 2400.0,
+      "medida": "1,22X2,44",
+      "proveedor": "PLASCO",
+      "categoria": "laminas_acrilicos"
+    },
+    {
+      "id": 3,
+      "material": "ACRILICO BLANCO 3MM",
+      "costo": 1300.0,
+      "medida": "1,20X2,40",
+      "proveedor": "PLASCO",
+      "categoria": "laminas_acrilicos"
+    },
+    {
+      "id": 4,
+      "material": "ACRILICO BLANCO 6MM",
+      "costo": 2400.0,
+      "medida": "1,20X2,40",
+      "proveedor": "PLASCO",
+      "categoria": "laminas_acrilicos"
+    },
+    {
+      "id": 5,
+      "material": "ACRILICO CRISTAL 3MM",
+      "costo": 1150.0,
+      "medida": "1,20X2,40",
+      "proveedor": "PLASCO",
+      "categoria": "laminas_acrilicos"
+    },
+    {
+      "id": 6,
+      "material": "ACRILICO CRISTAL 6MM",
+      "costo": 2300.0,
+      "medida": "1,20X2,40",
+      "proveedor": "PLASCO",
+      "categoria": "laminas_acrilicos"
+    },
+    {
+      "id": 7,
+      "material": "TIRA DE MODULOS LED BLANCO PURO 2 LEDS (20 modulos de 2 diodos)",
+      "costo": 90.0,
+      "medida": "PIEZA",
+      "proveedor": "PLASCO",
+      "categoria": "leds_fuentes"
+    },
+    {
+      "id": 8,
+      "material": "TIRA DE MODULOS LED BLANCO PURO 3 LEDS - (20 modulos de 3 diodos)",
+      "costo": 110.0,
+      "medida": "PIEZA",
+      "proveedor": "PLASCO",
+      "categoria": "leds_fuentes"
+    },
+    {
+      "id": 9,
+      "material": "VINIL DE IMPRESION FONDO GRIS MATE",
+      "costo": 1900.0,
+      "medida": "1,52X50",
+      "proveedor": "PLASCO",
+      "categoria": "viniles_lonas"
+    },
+    {
+      "id": 10,
+      "material": "VINIL DE IMPRESION MATE",
+      "costo": 1800.0,
+      "medida": "1,52X50",
+      "proveedor": "PLASCO",
+      "categoria": "viniles_lonas"
+    },
+    {
+      "id": 11,
+      "material": "LONA RESPALDO NEGRO",
+      "costo": 2600.0,
+      "medida": "3,20X50",
+      "proveedor": "PLASCO",
+      "categoria": "viniles_lonas"
+    },
+    {
+      "id": 12,
+      "material": "FUENTE DE PODER 30W EXTERIOR",
+      "costo": 180.0,
+      "medida": "PIEZA",
+      "proveedor": "PLASCO",
+      "categoria": "leds_fuentes"
+    },
+    {
+      "id": 13,
+      "material": "FUENTE DE PODER 60W EXTERIOR",
+      "costo": 340.0,
+      "medida": "PIEZA",
+      "proveedor": "PLASCO",
+      "categoria": "leds_fuentes"
+    },
+    {
+      "id": 14,
+      "material": "FUENTE DE PODER 100W EXTERIOR",
+      "costo": 450.0,
+      "medida": "PIEZA",
+      "proveedor": "PLASCO",
+      "categoria": "leds_fuentes"
+    },
+    {
+      "id": 15,
+      "material": "FUENTE DE PODER 150W EXTERIOR",
+      "costo": 850.0,
+      "medida": "PIEZA",
+      "proveedor": "PLASCO",
+      "categoria": "leds_fuentes"
+    },
+    {
+      "id": 16,
+      "material": "FUENTE DE PODER 220W EXTERIOR",
+      "costo": 1200.0,
+      "medida": "PIEZA",
+      "proveedor": "PLASCO",
+      "categoria": "leds_fuentes"
+    },
+    {
+      "id": 17,
+      "material": "CINTA DOBLE CONTACTO 26M",
+      "costo": 250.0,
+      "medida": "PIEZA",
+      "proveedor": "PLASCO",
+      "categoria": "consumibles"
+    },
+    {
+      "id": 18,
+      "material": "COROPLAST BLANCO 4MM",
+      "costo": 130.0,
+      "medida": "1,22X2,44",
+      "proveedor": "PLASCO",
+      "categoria": "laminas_acrilicos"
+    },
+    {
+      "id": 19,
+      "material": "silvatrim 2025 3/4\"",
+      "costo": 36.0,
+      "medida": "ML",
+      "proveedor": "PLASCO",
+      "categoria": "consumibles"
+    },
+    {
+      "id": 20,
+      "material": "TINTA D10 FOTOGRAFICA",
+      "costo": 1150.0,
+      "medida": "1L",
+      "proveedor": "PLASCO",
+      "categoria": "consumibles"
+    },
+    {
+      "id": 21,
+      "material": "TRANSFER PAPEL DE 30 CM",
+      "costo": 868.0,
+      "medida": "30X91,44",
+      "proveedor": "PLASCO",
+      "categoria": "consumibles"
+    },
+    {
+      "id": 22,
+      "material": "TRANSFER PAPEL DE 60 CM",
+      "costo": 1733.0,
+      "medida": "60X91,44",
+      "proveedor": "PLASCO",
+      "categoria": "consumibles"
+    },
+    {
+      "id": 23,
+      "material": "PVC BLANCO 3MM BAJA DENSIDAD",
+      "costo": 180.0,
+      "medida": "1,22X2,44",
+      "proveedor": "PLASCO",
+      "categoria": "laminas_acrilicos"
+    },
+    {
+      "id": 24,
+      "material": "PVC BLANCO 6MM",
+      "costo": 450.0,
+      "medida": "1,22X2,44",
+      "proveedor": "PLASCO",
+      "categoria": "laminas_acrilicos"
+    },
+    {
+      "id": 25,
+      "material": "PVC BLANCO 10MM",
+      "costo": 600.0,
+      "medida": "1,22X2,44",
+      "proveedor": "PLASCO",
+      "categoria": "laminas_acrilicos"
+    },
+    {
+      "id": 26,
+      "material": "PVC BLANCO 20MM",
+      "costo": 1200.0,
+      "medida": "1,22X2,44",
+      "proveedor": "PLASCO",
+      "categoria": "laminas_acrilicos"
+    },
+    {
+      "id": 27,
+      "material": "solo iman 60 cm de ancho cal 30",
+      "costo": 145.0,
+      "medida": "PIEZA",
+      "proveedor": "PLASCO",
+      "categoria": "consumibles"
+    },
+    {
+      "id": 28,
+      "material": "SILvatrim 2025 3/4\"",
+      "costo": 3800.0,
+      "medida": "MTL",
+      "proveedor": "PLASCO",
+      "categoria": "consumibles"
+    },
+    {
+      "id": 29,
+      "material": "Vinil impreso con respaldo gris o negro que costo tiene el rollo de 1.50mts",
+      "costo": 190000.0,
+      "medida": "PIEZA",
+      "proveedor": "PLASCO",
+      "categoria": "viniles_lonas"
+    },
+    {
+      "id": 30,
+      "material": "ROLLO TRANSFER  60CM",
+      "costo": 172500.0,
+      "medida": "PIEZA",
+      "proveedor": "PLASCO",
+      "categoria": "consumibles"
+    },
+    {
+      "id": 31,
+      "material": "PERFIL ZINTRO 109 CAL 18 1 X 1",
+      "costo": 202.13,
+      "medida": "PIEZA/TRAMO",
+      "proveedor": "FETASA",
+      "categoria": "estructura_metalica"
+    },
+    {
+      "id": 32,
+      "material": "PERFIL ZINTRO 107 CAL 18 1 1/2 X 1 1/2",
+      "costo": 310.63,
+      "medida": "PIEZA/TRAMO",
+      "proveedor": "FETASA",
+      "categoria": "estructura_metalica"
+    },
+    {
+      "id": 33,
+      "material": "PERFIL ZINTRO 110 CAL 18 3/4 X 3/4",
+      "costo": 148.93,
+      "medida": "PIEZA/TRAMO",
+      "proveedor": "FETASA",
+      "categoria": "estructura_metalica"
+    },
+    {
+      "id": 34,
+      "material": "SOLDADURA 6011 1/8 1KG",
+      "costo": 111.0,
+      "medida": "PIEZA/TRAMO",
+      "proveedor": "FETASA",
+      "categoria": "estructura_metalica"
+    },
+    {
+      "id": 35,
+      "material": "VARILLA CORRUGADA 3/8 X 12MTS",
+      "costo": 127.47,
+      "medida": "PIEZA/TRAMO",
+      "proveedor": "FETASA",
+      "categoria": "estructura_metalica"
+    },
+    {
+      "id": 36,
+      "material": "VARILLA CORRUGADA 1/2 12MTS",
+      "costo": 227.76,
+      "medida": "PIEZA/TRAMO",
+      "proveedor": "FETASA",
+      "categoria": "estructura_metalica"
+    },
+    {
+      "id": 37,
+      "material": "ANGULO 3/16 X 1",
+      "costo": 315.25,
+      "medida": "PIEZA/TRAMO",
+      "proveedor": "FETASA",
+      "categoria": "estructura_metalica"
+    },
+    {
+      "id": 38,
+      "material": "DISCO MAKITA P/METAL 14\"",
+      "costo": 61.5,
+      "medida": "PIEZA/TRAMO",
+      "proveedor": "FETASA",
+      "categoria": "estructura_metalica"
+    },
+    {
+      "id": 39,
+      "material": "PERFIL 105 CAL 18 1/2 X 1/2",
+      "costo": 100.92,
+      "medida": "PIEZA/TRAMO",
+      "proveedor": "FETASA",
+      "categoria": "estructura_metalica"
+    },
+    {
+      "id": 40,
+      "material": "VARILLA REDONDA DE 1/2",
+      "costo": 168.54,
+      "medida": "PIEZA/TRAMO",
+      "proveedor": "FETASA",
+      "categoria": "estructura_metalica"
+    },
+    {
+      "id": 41,
+      "material": "PERFIL CAL 14 1 X 1",
+      "costo": 241.82,
+      "medida": "PIEZA/TRAMO",
+      "proveedor": "FETASA",
+      "categoria": "estructura_metalica"
+    },
+    {
+      "id": 42,
+      "material": "PERFIL CAL 14 1 1/2 X 1 1/2",
+      "costo": 379.22,
+      "medida": "PIEZA/TRAMO",
+      "proveedor": "FETASA",
+      "categoria": "estructura_metalica"
+    },
+    {
+      "id": 43,
+      "material": "PERFIL CAL 14 2 X 2",
+      "costo": 499.58,
+      "medida": "PIEZA/TRAMO",
+      "proveedor": "FETASA",
+      "categoria": "estructura_metalica"
+    },
+    {
+      "id": 44,
+      "material": "PERFIL CAL 18 2 X 2 PTR",
+      "costo": 407.16,
+      "medida": "PIEZA/TRAMO",
+      "proveedor": "FETASA",
+      "categoria": "estructura_metalica"
+    },
+    {
+      "id": 45,
+      "material": "TUBO MONTEN 1\" CED 30",
+      "costo": 256.47,
+      "medida": "PIEZA/TRAMO",
+      "proveedor": "FETASA",
+      "categoria": "estructura_metalica"
+    },
+    {
+      "id": 46,
+      "material": "TUBO MONTEN 1 1/4 CED 30",
+      "costo": 387.47,
+      "medida": "PIEZA/TRAMO",
+      "proveedor": "FETASA",
+      "categoria": "estructura_metalica"
+    },
+    {
+      "id": 47,
+      "material": "TOBO MOFLE CAL 18 1\"",
+      "costo": 334.08,
+      "medida": "PIEZA/TRAMO",
+      "proveedor": "FETASA",
+      "categoria": "estructura_metalica"
+    },
+    {
+      "id": 48,
+      "material": "LAMINA GALV. CAL-24 3' X 10' (lamina galvanizada lisa 305 x 90 cm)",
+      "costo": 435.0,
+      "medida": "PIEZA/TRAMO",
+      "proveedor": "FETASA",
+      "categoria": "estructura_metalica"
+    },
+    {
+      "id": 49,
+      "material": "SOLERA CAL. 3/16  TAMAÑO 2\" TRAMO DE 6 MTL",
+      "costo": 598.0,
+      "medida": "PIEZA/TRAMO",
+      "proveedor": "FETASA",
+      "categoria": "estructura_metalica"
+    },
+    {
+      "id": 50,
+      "material": "perfil #148 cal. 18 regla de 1\" x 2\" galvanizada",
+      "costo": 279.0,
+      "medida": "PIEZA/TRAMO",
+      "proveedor": "FETASA",
+      "categoria": "estructura_metalica"
+    },
+    {
+      "id": 51,
+      "material": "pija auto rozcable para tensar",
+      "costo": 0.2,
+      "medida": "PIEZA/TRAMO",
+      "proveedor": "FETASA",
+      "categoria": "estructura_metalica"
+    },
+    {
+      "id": 52,
+      "material": "taquete expacivo 3/8",
+      "costo": 10.0,
+      "medida": "PIEZA/TRAMO",
+      "proveedor": "FETASA",
+      "categoria": "estructura_metalica"
+    },
+    {
+      "id": 53,
+      "material": "VINIL PARA IMPRESION ROTULACION VEHICULAR 3M",
+      "costo": 426.59,
+      "medida": "METRO LINEAL",
+      "proveedor": "AVANCE",
+      "categoria": "viniles_lonas"
+    },
+    {
+      "id": 54,
+      "material": "FIBRA CARBONO SING CAL 122 CM , DURACION DE 3 AÑOS",
+      "costo": 160.0,
+      "medida": "METRO LINEAL",
+      "proveedor": "AVANCE",
+      "categoria": "viniles_lonas"
+    },
+    {
+      "id": 55,
+      "material": "FIBRA FULL WRAP, 152CM DURACION 3 AÑOS",
+      "costo": 294.0,
+      "medida": "METRO LINEAL",
+      "proveedor": "AVANCE",
+      "categoria": "viniles_lonas"
+    },
+    {
+      "id": 56,
+      "material": "LONA TRASLUCIDA 1,53   (2 años)",
+      "costo": 139.0,
+      "medida": "METRO LINEAL",
+      "proveedor": "AVANCE",
+      "categoria": "lonas"
+    },
+    {
+      "id": 57,
+      "material": "LONA TRASLUCIDA 1,53   (3 años)",
+      "costo": 158.0,
+      "medida": "METRO LINEAL",
+      "proveedor": "AVANCE",
+      "categoria": "lonas"
+    },
+    {
+      "id": 58,
+      "material": "LONA TRASLUCIDA 1,83   (2 años)",
+      "costo": 152.0,
+      "medida": "METRO LINEAL",
+      "proveedor": "AVANCE",
+      "categoria": "lonas"
+    },
+    {
+      "id": 59,
+      "material": "LONA TRASLUCIDA 1,83   (3 años)",
+      "costo": 189.0,
+      "medida": "METRO LINEAL",
+      "proveedor": "AVANCE",
+      "categoria": "lonas"
+    },
+    {
+      "id": 60,
+      "material": "lona traslucida lumiyet pro  250 cm  duracion  7 años",
+      "costo": 344.01,
+      "medida": "METRO LINEAL",
+      "proveedor": "AVANCE",
+      "categoria": "lonas"
+    },
+    {
+      "id": 61,
+      "material": "lona traslucida lumiyet pro  250 cm  duracion  5 años",
+      "costo": 257.0,
+      "medida": "METRO LINEAL",
+      "proveedor": "AVANCE",
+      "categoria": "lonas"
+    },
+    {
+      "id": 62,
+      "material": "lona traslucida lumiyet pro  250 cm  duracion  3 años",
+      "costo": 239.0,
+      "medida": "METRO LINEAL",
+      "proveedor": "AVANCE",
+      "categoria": "lonas"
+    },
+    {
+      "id": 63,
+      "material": "PELICULA BACKLIT 1,37",
+      "costo": 140.0,
+      "medida": "METRO LINEAL",
+      "proveedor": "AVANCE",
+      "categoria": "viniles_lonas"
+    },
+    {
+      "id": 64,
+      "material": "LONA STRONGFLEX BLANCA BRILLANTE 1,55",
+      "costo": 109.0,
+      "medida": "METRO LINEAL",
+      "proveedor": "AVANCE",
+      "categoria": "lonas"
+    },
+    {
+      "id": 65,
+      "material": "VINIL MICROPERFORADO 1,37",
+      "costo": 105.0,
+      "medida": "METRO LINEAL",
+      "proveedor": "AVANCE",
+      "categoria": "viniles_lonas"
+    },
+    {
+      "id": 66,
+      "material": "VINIL MICROPERFORADO 1,50",
+      "costo": 115.0,
+      "medida": "METRO LINEAL",
+      "proveedor": "AVANCE",
+      "categoria": "viniles_lonas"
+    },
+    {
+      "id": 67,
+      "material": "Lona traslucida  Lumijet Pro-5 153 cm 5 años duravilidad",
+      "costo": 153.0,
+      "medida": "METRO LINEAL",
+      "proveedor": "AVANCE",
+      "categoria": "lonas"
+    },
+    {
+      "id": 68,
+      "material": "Laminador Antiderrapante Antidesliss económico 150 cm de ancho matte",
+      "costo": 68.0,
+      "medida": "METRO LINEAL",
+      "proveedor": "AVANCE",
+      "categoria": "viniles_lonas"
+    },
+    {
+      "id": 69,
+      "material": "Lonas para impresión Backlit Lumijet Pro-5 - 320cm de acnho 5 años de duracion",
+      "costo": 305.0,
+      "medida": "METRO LINEAL",
+      "proveedor": "AVANCE",
+      "categoria": "lonas"
+    },
+    {
+      "id": 70,
+      "material": "Vinil de Corte Traslúcido SM5 120cm de ancho",
+      "costo": 80.0,
+      "medida": "METRO LINEAL",
+      "proveedor": "AVANCE",
+      "categoria": "viniles_lonas"
+    },
+    {
+      "id": 71,
+      "material": "VINIL ELECTROSTATICO BLANCO O TRASPARENTE  127CM",
+      "costo": 78.0,
+      "medida": "METRO LINEAL",
+      "proveedor": "AVANCE",
+      "categoria": "viniles_lonas"
+    },
+    {
+      "id": 72,
+      "material": "VINIL ESMERILADO DE 1,20",
+      "costo": 159.0,
+      "medida": "METRO LINEAL",
+      "proveedor": "AVANCE",
+      "categoria": "viniles_lonas"
+    },
+    {
+      "id": 73,
+      "material": "vinil ptf protector transparente 152cm  se autorepara con calor",
+      "costo": 1038.0,
+      "medida": "METRO LINEAL",
+      "proveedor": "AVANCE",
+      "categoria": "viniles_lonas"
+    },
+    {
+      "id": 74,
+      "material": "acrilicop black an led 120 x 20 3mm dura 5 alños",
+      "costo": 2674.01,
+      "medida": "hoja",
+      "proveedor": "AVANCE",
+      "categoria": "viniles_lonas"
+    },
+    {
+      "id": 75,
+      "material": "lona tralucida 180cm 3 años",
+      "costo": 186.0,
+      "medida": "METRO LINEAL",
+      "proveedor": "AVANCE",
+      "categoria": "lonas"
+    },
+    {
+      "id": 76,
+      "material": "vinil tralucido rojo sing cal m5 3 años  122",
+      "costo": 96.0,
+      "medida": "METRO LINEAL",
+      "proveedor": "AVANCE",
+      "categoria": "viniles_lonas"
+    },
+    {
+      "id": 77,
+      "material": "lona traslucida 250 cm  2 años  11metros",
+      "costo": 2252.09,
+      "medida": "METRO LINEAL",
+      "proveedor": "AVANCE",
+      "categoria": "lonas"
+    },
+    {
+      "id": 78,
+      "material": "lona traslucida 320 cm  2 años  11 metros",
+      "costo": 2882.68,
+      "medida": "METRO LINEAL",
+      "proveedor": "AVANCE",
+      "categoria": "lonas"
+    },
+    {
+      "id": 79,
+      "material": "lona mesh 320 cm  270gramos x m2   6 MESES A 1AÑO",
+      "costo": 119.45,
+      "medida": "METRO LINEAL",
+      "proveedor": "AVANCE",
+      "categoria": "lonas"
+    },
+    {
+      "id": 80,
+      "material": "lona traslucida panagraphic  150 y rollo 120 dias aviles",
+      "costo": 644.28,
+      "medida": "METRO LINEAL",
+      "proveedor": "AVANCE",
+      "categoria": "lonas"
+    },
+    {
+      "id": 81,
+      "material": "lona traslucida panagraphic  320",
+      "costo": 1374.5,
+      "medida": "METRO LINEAL",
+      "proveedor": "AVANCE",
+      "categoria": "lonas"
+    },
+    {
+      "id": 82,
+      "material": "panel de aluminio 4 mm 10 a 12 años  122 x 244",
+      "costo": 2580.0,
+      "medida": "METRO LINEAL",
+      "proveedor": "AVANCE",
+      "categoria": "viniles_lonas"
+    },
+    {
+      "id": 83,
+      "material": "iman para carro cal. 30 cara blanca 60 cm de ancho",
+      "costo": 113.75,
+      "medida": "METRO LINEAL",
+      "proveedor": "AVANCE",
+      "categoria": "viniles_lonas"
+    },
+    {
+      "id": 84,
+      "material": "vinil trasparente 150 cm 4 años",
+      "costo": 81.23,
+      "medida": "METRO LINEAL",
+      "proveedor": "AVANCE",
+      "categoria": "viniles_lonas"
+    },
+    {
+      "id": 85,
+      "material": "lamina  estirno cal.40  mide 240 x 120",
+      "costo": 371.58,
+      "medida": "METRO LINEAL",
+      "proveedor": "AVANCE",
+      "categoria": "viniles_lonas"
+    },
+    {
+      "id": 86,
+      "material": "LAMINA PVC ESPUMADO BLANCO FOMICEL 3MM 1.22X2.44 MT C/ PROTEC 1 CARA",
+      "costo": 180.72,
+      "medida": "METRO LINEAL",
+      "proveedor": "AVANCE",
+      "categoria": "viniles_lonas"
+    },
+    {
+      "id": 87,
+      "material": "LAMINA PVC ESPUMADO BLANCO FOMICEL 6MM 1.22X2.44 MT C/ PROTEC 1 CARA",
+      "costo": 325.78,
+      "medida": "METRO LINEAL",
+      "proveedor": "AVANCE",
+      "categoria": "viniles_lonas"
+    },
+    {
+      "id": 88,
+      "material": "LAMINA PVC ESPUMADO BLANCO FOMIFLEX 6MM 1.22X2.44 MT C/ PROTEC 1 CARA",
+      "costo": 378.25,
+      "medida": "METRO LINEAL",
+      "proveedor": "AVANCE",
+      "categoria": "viniles_lonas"
+    },
+    {
+      "id": 89,
+      "material": "LAMINA PVC ESPUMADO BLANCO FOMIFLEX 3MM 1.22X2.44 MT C/ PROTEC 1 CARA",
+      "costo": 209.0,
+      "medida": "METRO LINEAL",
+      "proveedor": "AVANCE",
+      "categoria": "viniles_lonas"
+    },
+    {
+      "id": 90,
+      "material": "vinil de corte e imprimivle metalix de 60 cm",
+      "costo": 152.0,
+      "medida": "METRO LINEAL",
+      "proveedor": "AVANCE",
+      "categoria": "viniles_lonas"
+    },
+    {
+      "id": 91,
+      "material": "vinil electrostatico transparente de 127 cm",
+      "costo": 50.0,
+      "medida": "METRO LINEAL",
+      "proveedor": "AVANCE",
+      "categoria": "viniles_lonas"
+    },
+    {
+      "id": 92,
+      "material": "Led grande pra contornos Sky Led Edge 1 Diodo Blanco IP65 SMD3030",
+      "costo": 27.0,
+      "medida": "METRO LINEAL",
+      "proveedor": "AVANCE",
+      "categoria": "viniles_lonas"
+    },
+    {
+      "id": 93,
+      "material": "VINIL DE CORTE TRANSLÚCIDO SM5-87 FOREST GREEN (24 pulg / 0.61 m ancho)",
+      "costo": 34.5,
+      "medida": "METRO LINEAL",
+      "proveedor": "AVANCE",
+      "categoria": "viniles_lonas"
+    },
+    {
+      "id": 94,
+      "material": "Vinil transparente",
+      "costo": 141.41,
+      "medida": "METRO LINEAL",
+      "proveedor": "AVANCE",
+      "categoria": "viniles_lonas"
+    },
+    {
+      "id": 95,
+      "material": "LAMINADOR BRILLANTE TRANSPARENTE INTERTACK CAR 1,52ANCHO",
+      "costo": 7277.0,
+      "medida": "MT",
+      "proveedor": "AVANCE",
+      "categoria": "viniles_lonas"
+    },
+    {
+      "id": 96,
+      "material": "VINIL IMPRESO TRANSPARENTE ORALJET /4 AÑOS DURABILIDAD",
+      "costo": 5977.0,
+      "medida": "METRO LINEAL",
+      "proveedor": "AVANCE",
+      "categoria": "viniles_lonas"
+    },
+    {
+      "id": 97,
+      "material": "vinil laminador 152 cm de ancho precio x metro lineal",
+      "costo": 77.0,
+      "medida": "METRO LINEAL",
+      "proveedor": "MAT.GRAFICOS",
+      "categoria": "viniles_lonas"
+    },
+    {
+      "id": 98,
+      "material": "estireno cal. 40 120 x 152",
+      "costo": 197.69,
+      "medida": "METRO LINEAL",
+      "proveedor": "MAT.GRAFICOS",
+      "categoria": "viniles_lonas"
+    },
+    {
+      "id": 99,
+      "material": "estireno cal. 40 122 x 244",
+      "costo": 328.13,
+      "medida": "METRO LINEAL",
+      "proveedor": "MAT.GRAFICOS",
+      "categoria": "viniles_lonas"
+    },
+    {
+      "id": 100,
+      "material": "pvc 3mm",
+      "costo": 270.0,
+      "medida": "METRO LINEAL",
+      "proveedor": "MAT.GRAFICOS",
+      "categoria": "viniles_lonas"
+    },
+    {
+      "id": 101,
+      "material": "panel de aluminio hoja de 498 x 157 colores blanco, negro, amarillo, azul",
+      "costo": 4800.0,
+      "medida": "METRO LINEAL",
+      "proveedor": "MAT.GRAFICOS",
+      "categoria": "viniles_lonas"
+    },
+    {
+      "id": 102,
+      "material": "vinil plata espejo 60cm (se puede imprimir pero no es 100% garantia)",
+      "costo": 115.0,
+      "medida": "METRO LINEAL",
+      "proveedor": "MAT.GRAFICOS",
+      "categoria": "viniles_lonas"
+    },
+    {
+      "id": 103,
+      "material": "vinil plata espejo 120cm (se puede imprimir pero no es 100% garantia)",
+      "costo": 231.0,
+      "medida": "METRO LINEAL",
+      "proveedor": "MAT.GRAFICOS",
+      "categoria": "viniles_lonas"
+    },
+    {
+      "id": 104,
+      "material": "vinil electroestatico blanco  127cm",
+      "costo": 68.0,
+      "medida": "METRO LINEAL",
+      "proveedor": "MAT.GRAFICOS",
+      "categoria": "viniles_lonas"
+    },
+    {
+      "id": 105,
+      "material": "lona forto flex , colores a elegir 153 cm mtl",
+      "costo": 135.0,
+      "medida": "METRO LINEAL",
+      "proveedor": "MAT.GRAFICOS",
+      "categoria": "viniles_lonas"
+    },
+    {
+      "id": 106,
+      "material": "vinil de corte en 60 cm (24\") mtl",
+      "costo": 55.0,
+      "medida": "METRO LINEAL",
+      "proveedor": "MAT.GRAFICOS",
+      "categoria": "viniles_lonas"
+    },
+    {
+      "id": 107,
+      "material": "Vinil de corte Arlon Cal+ 24\" (60 cm) Orange (precio por metro)",
+      "costo": 46.4,
+      "medida": "METRO LINEAL",
+      "proveedor": "MAT.GRAFICOS",
+      "categoria": "viniles_lonas"
+    },
+    {
+      "id": 108,
+      "material": "Vinil de corte Arlon Cal+ 24\" (60 cm) Black (precio por metro)",
+      "costo": 46.4,
+      "medida": "METRO LINEAL",
+      "proveedor": "MAT.GRAFICOS",
+      "categoria": "viniles_lonas"
+    },
+    {
+      "id": 109,
+      "material": "Vinil de corte Arlon Cal+ 24\" (60 cm) White (precio por metro)",
+      "costo": 46.4,
+      "medida": "METRO LINEAL",
+      "proveedor": "MAT.GRAFICOS",
+      "categoria": "viniles_lonas"
+    },
+    {
+      "id": 110,
+      "material": "Vinil de corte Wrap Arlon 414 Berry Blue Gloss (precio por metro)",
+      "costo": 474.14,
+      "medida": "METRO LINEAL",
+      "proveedor": "MAT.GRAFICOS",
+      "categoria": "viniles_lonas"
+    },
+    {
+      "id": 111,
+      "material": "Vinil de corte Wrap Arlon 412 Light Grey Gloss (precio por metro)",
+      "costo": 474.14,
+      "medida": "METRO LINEAL",
+      "proveedor": "MAT.GRAFICOS",
+      "categoria": "viniles_lonas"
+    },
+    {
+      "id": 112,
+      "material": "vinil reflejante 3m blanco De 61cm x mtl",
+      "costo": 263.05,
+      "medida": "METRO LINEAL",
+      "proveedor": "MAT.GRAFICOS",
+      "categoria": "viniles_lonas"
+    },
+    {
+      "id": 113,
+      "material": "vinil reflejante 3m blanco De 122cm  x mtl",
+      "costo": 526.11,
+      "medida": "METRO LINEAL",
+      "proveedor": "MAT.GRAFICOS",
+      "categoria": "viniles_lonas"
+    },
+    {
+      "id": 114,
+      "material": "vinil traslucido 60 cm arlon",
+      "costo": 74.9,
+      "medida": "METRO LINEAL",
+      "proveedor": "MAT.GRAFICOS",
+      "categoria": "viniles_lonas"
+    },
+    {
+      "id": 115,
+      "material": "vinil traslucido 120 cm arlon",
+      "costo": 149.8,
+      "medida": "METRO LINEAL",
+      "proveedor": "MAT.GRAFICOS",
+      "categoria": "viniles_lonas"
+    },
+    {
+      "id": 116,
+      "material": "Panel de aluminio YELLOW SATIN / MEDIDAS HOJA 125x350",
+      "costo": 229680.0,
+      "medida": "METRO LINEAL",
+      "proveedor": "MAT.GRAFICOS",
+      "categoria": "viniles_lonas"
+    },
+    {
+      "id": 117,
+      "material": "Panel de aluminio darki blue gloss / MEDIDAS HOJA 125x498",
+      "costo": 3132.0,
+      "medida": "METRO LINEAL",
+      "proveedor": "MAT.GRAFICOS",
+      "categoria": "viniles_lonas"
+    },
+    {
+      "id": 118,
+      "material": "Panel de aluminio darki blue gloss /MEDIDAS HOJA 157x498",
+      "costo": 4092.48,
+      "medida": "METRO LINEAL",
+      "proveedor": "MAT.GRAFICOS",
+      "categoria": "viniles_lonas"
+    },
+    {
+      "id": 119,
+      "material": "VINIL ESMERILADO ARLON  1.20 de ancho",
+      "costo": 14400.0,
+      "medida": "METRO LINEAL",
+      "proveedor": "MAT.GRAFICOS",
+      "categoria": "viniles_lonas"
+    },
+    {
+      "id": 120,
+      "material": "SILVATRIM 1 ROLLO 45,50MTS",
+      "costo": 1700.0,
+      "medida": "METRO LINEAL",
+      "proveedor": "MAT.GRAFICOS",
+      "categoria": "viniles_lonas"
+    },
+    {
+      "id": 121,
+      "material": "bondo epselive",
+      "costo": 204.0,
+      "medida": "lt",
+      "proveedor": "BASA",
+      "categoria": "pinturas_resinas"
+    },
+    {
+      "id": 122,
+      "material": "resistol 5000",
+      "costo": 275.0,
+      "medida": "lt",
+      "proveedor": "BASA",
+      "categoria": "pinturas_resinas"
+    },
+    {
+      "id": 123,
+      "material": "sellador para mdf blanco",
+      "costo": 228.0,
+      "medida": "lt",
+      "proveedor": "BASA",
+      "categoria": "pinturas_resinas"
+    },
+    {
+      "id": 124,
+      "material": "sellador para mdf transparente",
+      "costo": 188.0,
+      "medida": "lt",
+      "proveedor": "BASA",
+      "categoria": "pinturas_resinas"
+    },
+    {
+      "id": 125,
+      "material": "bolsa de estopa",
+      "costo": 70.0,
+      "medida": "pz",
+      "proveedor": "BASA",
+      "categoria": "pinturas_resinas"
+    },
+    {
+      "id": 126,
+      "material": "litro de pintura secado rapido",
+      "costo": 195.0,
+      "medida": "lt",
+      "proveedor": "BASA",
+      "categoria": "pinturas_resinas"
+    },
+    {
+      "id": 127,
+      "material": "bondo sherwin williams",
+      "costo": 135.0,
+      "medida": "lt",
+      "proveedor": "BASA",
+      "categoria": "pinturas_resinas"
+    },
+    {
+      "id": 128,
+      "material": "1/4 de pintura igualada entre $120  y $180 secado rapido duracion larga",
+      "costo": 180.0,
+      "medida": "2022-04-01 00:00:00",
+      "proveedor": "BASA",
+      "categoria": "pinturas_resinas"
+    },
+    {
+      "id": 129,
+      "material": "1/4 de pintura igualada entre $80  y $100 secado rapido 1 año",
+      "costo": 100.0,
+      "medida": "2022-04-01 00:00:00",
+      "proveedor": "BASA",
+      "categoria": "pinturas_resinas"
+    },
+    {
+      "id": 130,
+      "material": "bondo sherwin williams",
+      "costo": 135.0,
+      "medida": "lt",
+      "proveedor": "BASA",
+      "categoria": "pinturas_resinas"
+    },
+    {
+      "id": 131,
+      "material": "1/4 de pintura igualada entre $120  y $180 secado rapido duracion larga",
+      "costo": 180.0,
+      "medida": "2022-04-01 00:00:00",
+      "proveedor": "BASA",
+      "categoria": "pinturas_resinas"
+    },
+    {
+      "id": 132,
+      "material": "1/4 de pintura igualada entre $80  y $100 secado rapido 1 año",
+      "costo": 100.0,
+      "medida": "2022-04-01 00:00:00",
+      "proveedor": "BASA",
+      "categoria": "pinturas_resinas"
+    },
+    {
+      "id": 133,
+      "material": "fondo para lamina galvanizada exchinprimer",
+      "costo": 2160.0,
+      "medida": "galon",
+      "proveedor": "BASA",
+      "categoria": "pinturas_resinas"
+    },
+    {
+      "id": 134,
+      "material": "fondo para lamina galvanizada exchinprimer",
+      "costo": 622.0,
+      "medida": "1 lt",
+      "proveedor": "BASA",
+      "categoria": "pinturas_resinas"
+    },
+    {
+      "id": 135,
+      "material": "traparente automotriz   uav",
+      "costo": 323.0,
+      "medida": "1 lt",
+      "proveedor": "BASA",
+      "categoria": "pinturas_resinas"
+    },
+    {
+      "id": 136,
+      "material": "traparente automotriz  as 100",
+      "costo": 527.0,
+      "medida": "1 galon",
+      "proveedor": "BASA",
+      "categoria": "pinturas_resinas"
+    },
+    {
+      "id": 137,
+      "material": "promothor de aderencia para plasticos",
+      "costo": 228.0,
+      "medida": "2024-04-01 00:00:00",
+      "proveedor": "BASA",
+      "categoria": "pinturas_resinas"
+    },
+    {
+      "id": 138,
+      "material": "thiner estandar",
+      "costo": 133.0,
+      "medida": "1 galon",
+      "proveedor": "BASA",
+      "categoria": "pinturas_resinas"
+    },
+    {
+      "id": 139,
+      "material": "thiner aker",
+      "costo": 159.5,
+      "medida": "1 galon",
+      "proveedor": "BASA",
+      "categoria": "pinturas_resinas"
+    },
+    {
+      "id": 140,
+      "material": "VINIL ELECTROESTATICO BLANCO 1,52 X 50 M",
+      "costo": 2500.0,
+      "medida": "PIEZA",
+      "proveedor": "LANCERO",
+      "categoria": "displays_estructuras"
+    },
+    {
+      "id": 141,
+      "material": "VINIL MICROPERFORADO 1,52 X 50 M",
+      "costo": 1800.0,
+      "medida": "PIEZA",
+      "proveedor": "LANCERO",
+      "categoria": "displays_estructuras"
+    },
+    {
+      "id": 142,
+      "material": "PVC FOAMBOARD 3MM",
+      "costo": 1600.0,
+      "medida": "PIEZA",
+      "proveedor": "LANCERO",
+      "categoria": "displays_estructuras"
+    },
+    {
+      "id": 143,
+      "material": "PVC FOAMBOARD 10MM",
+      "costo": 1800.0,
+      "medida": "PIEZA",
+      "proveedor": "LANCERO",
+      "categoria": "displays_estructuras"
+    },
+    {
+      "id": 144,
+      "material": "PVC FOAMBOARD 6MM",
+      "costo": 1800.0,
+      "medida": "PIEZA",
+      "proveedor": "LANCERO",
+      "categoria": "displays_estructuras"
+    },
+    {
+      "id": 145,
+      "material": "COROPLAST 4MM",
+      "costo": 2000.0,
+      "medida": "PIEZA",
+      "proveedor": "LANCERO",
+      "categoria": "displays_estructuras"
+    },
+    {
+      "id": 146,
+      "material": "DISPLAY 60X160",
+      "costo": 60.0,
+      "medida": "PIEZA",
+      "proveedor": "LANCERO",
+      "categoria": "displays_estructuras"
+    },
+    {
+      "id": 147,
+      "material": "DISPLAY 80X180",
+      "costo": 65.0,
+      "medida": "PIEZA",
+      "proveedor": "LANCERO",
+      "categoria": "displays_estructuras"
+    },
+    {
+      "id": 148,
+      "material": "DISPLAY ROLL UP SENCILLO 80X200",
+      "costo": 300.0,
+      "medida": "PIEZA",
+      "proveedor": "LANCERO",
+      "categoria": "displays_estructuras"
+    },
+    {
+      "id": 149,
+      "material": "DISPLAY ROLL UP SENCILLO 85X200",
+      "costo": 320.0,
+      "medida": "PIEZA",
+      "proveedor": "LANCERO",
+      "categoria": "displays_estructuras"
+    },
+    {
+      "id": 150,
+      "material": "CUADRO DE LUZ RECTANGULO 40X60",
+      "costo": 550.0,
+      "medida": "PIEZA",
+      "proveedor": "LANCERO",
+      "categoria": "displays_estructuras"
+    },
+    {
+      "id": 151,
+      "material": "CUADRO DE LUZ RECTANGULO 50X70",
+      "costo": 600.0,
+      "medida": "PIEZA",
+      "proveedor": "LANCERO",
+      "categoria": "displays_estructuras"
+    },
+    {
+      "id": 152,
+      "material": "CAJA DE LUZ REDONDO 50 CM",
+      "costo": 600.0,
+      "medida": "PIEZA",
+      "proveedor": "LANCERO",
+      "categoria": "displays_estructuras"
+    },
+    {
+      "id": 153,
+      "material": "CAJA DE LUZ REDONDO 60 CM",
+      "costo": 700.0,
+      "medida": "PIEZA",
+      "proveedor": "LANCERO",
+      "categoria": "displays_estructuras"
+    },
+    {
+      "id": 154,
+      "material": "CAJA DE LUZ REDONDO 80 CM",
+      "costo": 900.0,
+      "medida": "PIEZA",
+      "proveedor": "LANCERO",
+      "categoria": "displays_estructuras"
+    },
+    {
+      "id": 155,
+      "material": "CAJA DE LUZ RECTANGULAR 40X60",
+      "costo": 550.0,
+      "medida": "PIEZA",
+      "proveedor": "LANCERO",
+      "categoria": "displays_estructuras"
+    },
+    {
+      "id": 156,
+      "material": "CAJA DE LUZ RECTANGULAR 50X70",
+      "costo": 600.0,
+      "medida": "PIEZA",
+      "proveedor": "LANCERO",
+      "categoria": "displays_estructuras"
+    },
+    {
+      "id": 157,
+      "material": "POP BANNER 2,3X2,3 (3X3)",
+      "costo": 1900.0,
+      "medida": "PIEZA",
+      "proveedor": "LANCERO",
+      "categoria": "displays_estructuras"
+    },
+    {
+      "id": 158,
+      "material": "POP BANNER 2,3X3,0 (3X4)",
+      "costo": 2200.0,
+      "medida": "PIEZA",
+      "proveedor": "LANCERO",
+      "categoria": "displays_estructuras"
+    },
+    {
+      "id": 159,
+      "material": "STANDS ALUMINIO",
+      "costo": 800.0,
+      "medida": "PIEZA",
+      "proveedor": "LANCERO",
+      "categoria": "displays_estructuras"
+    },
+    {
+      "id": 160,
+      "material": "STANDS PVC",
+      "costo": 750.0,
+      "medida": "PIEZA",
+      "proveedor": "LANCERO",
+      "categoria": "displays_estructuras"
+    },
+    {
+      "id": 161,
+      "material": "TINTA D10 LITRO",
+      "costo": 898.91,
+      "medida": "PIEZA/ROLLO",
+      "proveedor": "ARCLAD",
+      "categoria": "tintas_insumos"
+    },
+    {
+      "id": 162,
+      "material": "TINTA T35 JALON",
+      "costo": 2104.82,
+      "medida": "PIEZA/ROLLO",
+      "proveedor": "ARCLAD",
+      "categoria": "tintas_insumos"
+    },
+    {
+      "id": 163,
+      "material": "TRANSFER PAPEL",
+      "costo": 1441.85,
+      "medida": "PIEZA/ROLLO",
+      "proveedor": "ARCLAD",
+      "categoria": "tintas_insumos"
+    },
+    {
+      "id": 164,
+      "material": "LONA BANNER BLANCA 3,20",
+      "costo": 2111.64,
+      "medida": "PIEZA/ROLLO",
+      "proveedor": "ARCLAD",
+      "categoria": "tintas_insumos"
+    },
+    {
+      "id": 165,
+      "material": "VINIL DE IMPRESION 1,50",
+      "costo": 3026.39,
+      "medida": "PIEZA/ROLLO",
+      "proveedor": "ARCLAD",
+      "categoria": "tintas_insumos"
+    },
+    {
+      "id": 166,
+      "material": "vinil trasparente de 152",
+      "costo": 56.04,
+      "medida": "PIEZA/ROLLO",
+      "proveedor": "ARCLAD",
+      "categoria": "tintas_insumos"
+    },
+    {
+      "id": 167,
+      "material": "VELCRO NEGRO 1''",
+      "costo": 8.0,
+      "medida": "ML/PIEZA",
+      "proveedor": "TEDEMAZ",
+      "categoria": "lonas"
+    },
+    {
+      "id": 168,
+      "material": "VELVRO NEGRO 2''",
+      "costo": 15.0,
+      "medida": "ML/PIEZA",
+      "proveedor": "TEDEMAZ",
+      "categoria": "lonas"
+    },
+    {
+      "id": 169,
+      "material": "LONA TIPO FORTOFLEX ML",
+      "costo": 138.0,
+      "medida": "ML/PIEZA",
+      "proveedor": "TEDEMAZ",
+      "categoria": "lonas"
+    }
+  ],
+  "precios_internos": [
+    {
+      "servicio": "vinil impreso calidad fotografica",
+      "costo_as_diseno": 45,
+      "precio_publico": 250,
+      "unidad": "m2"
+    },
+    {
+      "servicio": "suaje de vinil",
+      "costo_as_diseno": 90,
+      "precio_publico": 350,
+      "unidad": "m2"
+    },
+    {
+      "servicio": "mano de obra hora hombre",
+      "costo_as_diseno": 80,
+      "precio_publico": null,
+      "unidad": "hora"
+    }
+  ],
+  "categorias": {
+    "laminas_acrilicos": "Láminas, acrílicos, PVC, Coroplast",
+    "estructura_metalica": "Perfiles, tubos, ángulos, soldadura",
+    "viniles_lonas": "Viniles de impresión y corte",
+    "lonas": "Lonas banner, traslúcidas, backlit",
+    "leds_fuentes": "Módulos LED, fuentes de poder",
+    "pinturas_resinas": "Pinturas, bondos, thiner, selladores",
+    "tintas_insumos": "Tintas y consumibles de impresión",
+    "displays_estructuras": "Displays, roll-ups, stands",
+    "consumibles": "Cintas, transfer, velcro, otros"
+  }
+}

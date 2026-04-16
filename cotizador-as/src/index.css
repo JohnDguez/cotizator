@@ -1,0 +1,55 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #0f0f11;
+  --bg2: #18181c;
+  --bg3: #222228;
+  --border: #2e2e38;
+  --text: #f0f0f2;
+  --text2: #9898a8;
+  --text3: #5a5a6a;
+  --accent: #e85d26;
+  --accent2: #ff7a45;
+  --green: #2dd48a;
+  --blue: #4a9eff;
+  --radius: 10px;
+  --font: 'Inter', system-ui, sans-serif;
+}
+
+html { font-size: 15px; }
+body { background: var(--bg); color: var(--text); font-family: var(--font); min-height: 100vh; }
+
+/* scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+
+input, textarea, select {
+  font-family: var(--font);
+  font-size: 0.95rem;
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  color: var(--text);
+  border-radius: var(--radius);
+  padding: 0.65rem 0.9rem;
+  outline: none;
+  transition: border-color 0.15s;
+  width: 100%;
+}
+input:focus, textarea:focus { border-color: var(--accent); }
+
+button {
+  font-family: var(--font);
+  cursor: pointer;
+  border: none;
+  border-radius: var(--radius);
+  font-size: 0.9rem;
+  transition: all 0.15s;
+}
+
+/* Markdown-like prose in AI messages */
+.prose p { margin-bottom: 0.5em; }
+.prose ul { padding-left: 1.2em; }
+.prose li { margin-bottom: 0.25em; }
+.prose strong { color: var(--text); }
+.prose .price { color: var(--green); font-size: 1.1em; font-weight: 600; }
