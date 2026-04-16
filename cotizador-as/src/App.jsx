@@ -27,36 +27,33 @@ Módulos LED 2-diodo: $90/tira de 20 módulos (PLASCO)
 Módulos LED 3-diodo: $110/tira de 20 módulos (PLASCO)
 Fuente poder 30W: $180 | 60W: $340 | 100W: $450 | 150W: $850 | 220W: $1,200 (PLASCO)
 Silvatrim 3/4": $38/ml (PLASCO)
-Lona banner blanca 3.20m: $2,111/rollo de 50m (ARCLAD) → $42.22/ml
+Lona banner blanca 3.20m: $2,111/rollo de 50m (ARCLAD)
 Lona traslúcida Lumijet Pro-5 153cm 5 años: $153/ml (AVANCE)
 Lona traslúcida 320cm 5 años: $305/ml (AVANCE)
-Vinil de impresión 1.52m: $1,800/rollo 50m → $36/ml (PLASCO)
+Vinil de impresión 1.52m: $1,800/rollo 50m (PLASCO)
 Vinil de corte 60cm: $55/ml (MAT.GRÁFICOS)
 Vinil de corte traslúcido SM5 120cm: $80/ml (AVANCE)
-Transfer papel 60cm: $1,733/rollo → $24/ml (PLASCO)
-Perfil Zintro 1"x1" cal.18: $202/tramo 6m (FETASA)
-Perfil Zintro 1.5"x1.5" cal.18: $310/tramo 6m (FETASA)
-PTR cal.18 2"x2": $407/tramo (FETASA)
-Lámina galvanizada cal.24 3'x10': $435/hoja (FETASA)
+Transfer papel 60cm: $1,733/rollo (PLASCO)
+Perfil Zintro 1x1 cal.18: $202/tramo 6m (FETASA)
+Perfil Zintro 1.5x1.5 cal.18: $310/tramo 6m (FETASA)
+PTR cal.18 2x2: $407/tramo (FETASA)
+Lámina galvanizada cal.24: $435/hoja (FETASA)
 Soldadura 6011 1kg: $111 (FETASA)
 Pintura secado rápido: $195/lt (BASA)
 Cloroformo 1/2L: $360 (AEVA)
-Tinta D10 1L: $1,150 (PLASCO)
 Lámparas fluorescentes 122cm: $38/pza
 Balastros 2x32: $185/pza
 Bases portafocos: $22/pza
-Estopa: $250-$500/trabajo
 Cable cal.14: $8.50/ml | cal.16: $11/ml
 
 INSTRUCCIONES:
-1. Extrae: tipo de trabajo, dimensiones, cantidad de piezas, iluminación, si requiere instalación en altura.
-2. Si faltan las dimensiones, pregunta brevemente.
-3. Calcula cantidades reales. Para hojas de acrílico: área_necesaria / (1.20*2.40) * 1.15, redondea arriba.
-4. Para lonas/viniles: metros lineales * 1.15 merma.
-5. Lámparas backlit: aprox. 1 lámpara c/35cm de largo. 1 balastro por cada 2 lámparas.
-6. Responde siempre con el bloque JSON más un resumen de 2-3 líneas.
+1. Extrae: tipo de trabajo, dimensiones, cantidad de piezas, iluminación, instalación en altura.
+2. Si faltan dimensiones, pregunta brevemente.
+3. Calcula cantidades reales con merma del 15%.
+4. Usa precios del catálogo. Si es estimado, márcalo con (est.).
+5. Responde siempre con el bloque JSON más un resumen de 2-3 líneas.
 
-FORMATO JSON (obligatorio):
+FORMATO JSON (obligatorio en cada cotización):
 \`\`\`json
 {
   "tipo_trabajo": "string",
@@ -80,8 +77,22 @@ FORMATO JSON (obligatorio):
 }
 \`\`\`
 
-Habla siempre en español. Si el usuario pide ajustar algo, regenera el JSON completo con los cambios.`
+Habla siempre en español. Si el usuario pide ajustar algo, regenera el JSON completo.`
 
+// ── Storage helpers ──────────────────────────────────────────────
+const STORAGE_KEY = 'cotizador_as_historial'
+
+function cargarHistorial() {
+  try {
+    return JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]')
+  } catch { return [] }
+}
+
+function guardarHistorial(lista) {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(lista))
+}
+
+// ── Parsers ──────────────────────────────────────────────────────
 function parseQuote(content) {
   const match = content.match(/```json\n?([\s\S]*?)```/)
   if (!match) return null
@@ -92,21 +103,79 @@ function renderMessage(content) {
   return content.replace(/```json[\s\S]*?```/g, '').trim()
 }
 
+function nuevoFolio() {
+  return 'ASD-' + String(Date.now()).slice(-6)
+}
+
+// ── App ──────────────────────────────────────────────────────────
 export default function App() {
+  const [historial, setHistorial] = useState(() => cargarHistorial())
+  const [sesionActiva, setSesionActiva] = useState(null) // id de sesión activa
   const [messages, setMessages] = useState([])
   const [input, setInput] = useState('')
   const [loading, setLoading] = useState(false)
   const [quote, setQuote] = useState(null)
   const [cliente, setCliente] = useState('')
   const [utilidad, setUtilidad] = useState(40)
-  const [folio] = useState(() => 'ASD-' + String(Date.now()).slice(-6))
+  const [folio, setFolio] = useState(nuevoFolio)
   const [fecha] = useState(() => new Date().toLocaleDateString('es-MX'))
+  const [vistaHistorial, setVistaHistorial] = useState(false)
   const messagesEndRef = useRef(null)
   const inputRef = useRef(null)
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' })
   }, [messages, loading])
+
+  // Guarda la sesión activa en el historial cada vez que cambian los mensajes
+  useEffect(() => {
+    if (messages.length === 0) return
+    const sesion = {
+      id: sesionActiva || folio,
+      folio,
+      cliente,
+      fecha,
+      messages,
+      quote,
+      updatedAt: Date.now()
+    }
+    setSesionActiva(sesion.id)
+    setHistorial(prev => {
+      const sinEsta = prev.filter(s => s.id !== sesion.id)
+      const nuevo = [sesion, ...sinEsta].slice(0, 50) // máximo 50 cotizaciones
+      guardarHistorial(nuevo)
+      return nuevo
+    })
+  }, [messages, quote])
+
+  function nuevaCotizacion() {
+    setMessages([])
+    setQuote(null)
+    setCliente('')
+    setUtilidad(40)
+    setFolio(nuevoFolio())
+    setSesionActiva(null)
+    setVistaHistorial(false)
+    inputRef.current?.focus()
+  }
+
+  function abrirSesion(sesion) {
+    setMessages(sesion.messages)
+    setQuote(sesion.quote)
+    setCliente(sesion.cliente || '')
+    setFolio(sesion.folio)
+    setSesionActiva(sesion.id)
+    setVistaHistorial(false)
+    setTimeout(() => messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' }), 100)
+  }
+
+  function eliminarSesion(e, id) {
+    e.stopPropagation()
+    const nuevo = historial.filter(s => s.id !== id)
+    setHistorial(nuevo)
+    guardarHistorial(nuevo)
+    if (sesionActiva === id) nuevaCotizacion()
+  }
 
   async function sendMessage(text) {
     if (!text.trim() || loading) return
@@ -132,12 +201,12 @@ export default function App() {
         })
       })
       const data = await res.json()
-      const text2 = data.content?.[0]?.text || 'Error al obtener respuesta.'
-      setMessages(prev => [...prev, { role: 'assistant', content: text2 }])
-      const parsed = parseQuote(text2)
+      const txt = data.content?.[0]?.text || 'Error al obtener respuesta.'
+      setMessages(prev => [...prev, { role: 'assistant', content: txt }])
+      const parsed = parseQuote(txt)
       if (parsed) setQuote(parsed)
     } catch {
-      setMessages(prev => [...prev, { role: 'assistant', content: 'Error de conexión. Verifica que VITE_ANTHROPIC_KEY está en tu .env.local' }])
+      setMessages(prev => [...prev, { role: 'assistant', content: 'Error de conexión. Verifica que VITE_ANTHROPIC_KEY está configurada.' }])
     }
     setLoading(false)
     inputRef.current?.focus()
@@ -154,7 +223,7 @@ export default function App() {
 
   function aplicarUtilidad() {
     if (!quote) return
-    sendMessage(`Recalcula la cotización aplicando ${utilidad}% de utilidad en lugar del porcentaje actual.`)
+    sendMessage(`Recalcula la cotización aplicando ${utilidad}% de utilidad.`)
   }
 
   const suggestions = [
@@ -167,6 +236,7 @@ export default function App() {
 
   return (
     <div className="app">
+      {/* ── SIDEBAR ── */}
       <aside className="sidebar">
         <div className="logo">
           <div className="logo-mark">A</div>
@@ -176,62 +246,98 @@ export default function App() {
           </div>
         </div>
 
-        <div className="sidebar-section">
-          <label className="sidebar-label">Cliente</label>
-          <input value={cliente} onChange={e => setCliente(e.target.value)} placeholder="Nombre del cliente..." />
+        {/* Botones principales */}
+        <div className="sidebar-actions">
+          <button className="btn-nueva" onClick={nuevaCotizacion}>
+            <svg width="13" height="13" viewBox="0 0 20 20" fill="currentColor"><path d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z"/></svg>
+            Nueva cotización
+          </button>
+          <button className={`btn-historial ${vistaHistorial ? 'active' : ''}`} onClick={() => setVistaHistorial(v => !v)}>
+            <svg width="13" height="13" viewBox="0 0 20 20" fill="currentColor"><path d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4z"/></svg>
+            Historial ({historial.length})
+          </button>
         </div>
 
-        <div className="sidebar-section">
-          <label className="sidebar-label">Folio · Fecha</label>
-          <div className="folio-badge">{folio}</div>
-          <div className="folio-fecha">{fecha}</div>
-        </div>
-
-        <div className="sidebar-section">
-          <label className="sidebar-label">% de Utilidad</label>
-          <div className="utilidad-row">
-            <input type="number" min="0" max="200" value={utilidad} onChange={e => setUtilidad(Number(e.target.value))} style={{ width: '70px' }} />
-            <span className="utilidad-pct">%</span>
-            {quote && <button className="btn-recalc" onClick={aplicarUtilidad}>Aplicar</button>}
-          </div>
-        </div>
-
-        {quote && (
-          <div className="quote-preview">
-            <div className="quote-preview-title">Cotización activa</div>
-            <div className="quote-type">{quote.tipo_trabajo}</div>
-            <div className="quote-items">{quote.items?.length} conceptos</div>
-            <div className="qp-numbers">
-              <div className="qp-row"><span>Bruto</span><span>${quote.totales?.total_bruto?.toLocaleString('es-MX', { minimumFractionDigits: 2 })}</span></div>
-              <div className="qp-row"><span>Público</span><span>${quote.totales?.costo_venta_publico?.toLocaleString('es-MX', { minimumFractionDigits: 2 })}</span></div>
-              <div className="qp-row qp-final"><span>Con IVA</span><span>${quote.totales?.precio_final_con_iva?.toLocaleString('es-MX', { minimumFractionDigits: 2 })}</span></div>
-            </div>
-            <button className="btn-pdf" onClick={handlePDF}>
-              <svg width="14" height="14" viewBox="0 0 20 20" fill="currentColor">
-                <path d="M6 2a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V7.414A2 2 0 0015.414 6L12 2.586A2 2 0 0010.586 2H6zm5 6a1 1 0 10-2 0v3.586l-1.293-1.293a1 1 0 10-1.414 1.414l3 3a1 1 0 001.414 0l3-3a1 1 0 00-1.414-1.414L11 11.586V8z"/>
-              </svg>
-              Generar PDF
-            </button>
-          </div>
-        )}
-
-        <div className="sidebar-section" style={{ marginTop: 'auto' }}>
-          <label className="sidebar-label">Catálogo cargado</label>
-          <div className="catalog-stats">{catalogo.materiales.length} materiales · {Object.keys(catalogo.categorias).length} categorías</div>
-          {Object.entries(catalogo.materiales.reduce((acc, m) => { acc[m.proveedor] = (acc[m.proveedor] || 0) + 1; return acc }, {}))
-            .sort((a, b) => b[1] - a[1]).slice(0, 5).map(([p, n]) => (
-              <div key={p} className="prov-row"><span>{p}</span><span>{n}</span></div>
+        {/* Vista historial */}
+        {vistaHistorial ? (
+          <div className="historial-lista">
+            {historial.length === 0 && (
+              <div className="historial-empty">Sin cotizaciones guardadas</div>
+            )}
+            {historial.map(s => (
+              <div key={s.id} className={`historial-item ${sesionActiva === s.id ? 'activa' : ''}`} onClick={() => abrirSesion(s)}>
+                <div className="hi-folio">{s.folio}</div>
+                <div className="hi-cliente">{s.cliente || 'Sin cliente'}</div>
+                <div className="hi-tipo">{s.quote?.tipo_trabajo || '—'}</div>
+                {s.quote?.totales?.precio_final_con_iva && (
+                  <div className="hi-total">${s.quote.totales.precio_final_con_iva.toLocaleString('es-MX', { minimumFractionDigits: 2 })}</div>
+                )}
+                <div className="hi-fecha">{s.fecha}</div>
+                <button className="hi-del" onClick={e => eliminarSesion(e, s.id)}>✕</button>
+              </div>
             ))}
-        </div>
+          </div>
+        ) : (
+          <>
+            <div className="sidebar-section">
+              <label className="sidebar-label">Cliente</label>
+              <input value={cliente} onChange={e => setCliente(e.target.value)} placeholder="Nombre del cliente..." />
+            </div>
+
+            <div className="sidebar-section">
+              <label className="sidebar-label">Folio · Fecha</label>
+              <div className="folio-badge">{folio}</div>
+              <div className="folio-fecha">{fecha}</div>
+            </div>
+
+            <div className="sidebar-section">
+              <label className="sidebar-label">% de Utilidad</label>
+              <div className="utilidad-row">
+                <input type="number" min="0" max="200" value={utilidad} onChange={e => setUtilidad(Number(e.target.value))} style={{ width: '70px' }} />
+                <span className="utilidad-pct">%</span>
+                {quote && <button className="btn-recalc" onClick={aplicarUtilidad}>Aplicar</button>}
+              </div>
+            </div>
+
+            {quote && (
+              <div className="quote-preview">
+                <div className="quote-preview-title">Cotización activa</div>
+                <div className="quote-type">{quote.tipo_trabajo}</div>
+                <div className="quote-items">{quote.items?.length} conceptos</div>
+                <div className="qp-numbers">
+                  <div className="qp-row"><span>Bruto</span><span>${quote.totales?.total_bruto?.toLocaleString('es-MX', { minimumFractionDigits: 2 })}</span></div>
+                  <div className="qp-row"><span>Público</span><span>${quote.totales?.costo_venta_publico?.toLocaleString('es-MX', { minimumFractionDigits: 2 })}</span></div>
+                  <div className="qp-row qp-final"><span>Con IVA</span><span>${quote.totales?.precio_final_con_iva?.toLocaleString('es-MX', { minimumFractionDigits: 2 })}</span></div>
+                </div>
+                <button className="btn-pdf" onClick={handlePDF}>
+                  <svg width="14" height="14" viewBox="0 0 20 20" fill="currentColor">
+                    <path d="M6 2a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V7.414A2 2 0 0015.414 6L12 2.586A2 2 0 0010.586 2H6zm5 6a1 1 0 10-2 0v3.586l-1.293-1.293a1 1 0 10-1.414 1.414l3 3a1 1 0 001.414 0l3-3a1 1 0 00-1.414-1.414L11 11.586V8z"/>
+                  </svg>
+                  Generar PDF
+                </button>
+              </div>
+            )}
+
+            <div className="sidebar-section" style={{ marginTop: 'auto' }}>
+              <label className="sidebar-label">Catálogo cargado</label>
+              <div className="catalog-stats">{catalogo.materiales.length} materiales · {Object.keys(catalogo.categorias).length} categorías</div>
+              {Object.entries(catalogo.materiales.reduce((acc, m) => { acc[m.proveedor] = (acc[m.proveedor] || 0) + 1; return acc }, {}))
+                .sort((a, b) => b[1] - a[1]).slice(0, 5).map(([p, n]) => (
+                  <div key={p} className="prov-row"><span>{p}</span><span>{n}</span></div>
+                ))}
+            </div>
+          </>
+        )}
       </aside>
 
+      {/* ── CHAT ── */}
       <main className="chat-area">
         <div className="chat-messages">
           {messages.length === 0 && (
             <div className="empty-state">
               <div className="empty-icon">💬</div>
               <h2>Describe el trabajo a cotizar</h2>
-              <p>Cuéntame qué necesitas producir: tipo de anuncio, dimensiones, materiales, iluminación. La IA calcula con tus precios reales y aplica la fórmula de As Diseño (bruto + 40% utilidad + IVA).</p>
+              <p>Cuéntame qué necesitas producir: tipo de anuncio, dimensiones, materiales, iluminación. La IA calcula con tus precios reales y aplica la fórmula de As Diseño.</p>
               <div className="suggestions">
                 {suggestions.map((s, i) => (
                   <button key={i} className="suggestion-chip" onClick={() => sendMessage(s)}>{s}</button>
@@ -281,6 +387,7 @@ export default function App() {
   )
 }
 
+// ── QuoteCard ────────────────────────────────────────────────────
 function QuoteCard({ quote }) {
   const [open, setOpen] = useState(false)
   if (!quote?.totales) return null
@@ -317,7 +424,7 @@ function QuoteCard({ quote }) {
           <div className="qc-totales">
             <div className="qt-row"><span>Total Bruto</span><span>${t.total_bruto?.toLocaleString('es-MX', { minimumFractionDigits: 2 })}</span></div>
             <div className="qt-row"><span>Utilidad ({t.pct_utilidad}%)</span><span>+ ${t.utilidad?.toLocaleString('es-MX', { minimumFractionDigits: 2 })}</span></div>
-            {t.gastos_admin > 0 && <div className="qt-row"><span>Gastos Admin. ({t.pct_gastos_admin}%)</span><span>+ ${t.gastos_admin?.toLocaleString('es-MX', { minimumFractionDigits: 2 })}</span></div>}
+            {t.gastos_admin > 0 && <div className="qt-row"><span>Gastos Admin ({t.pct_gastos_admin}%)</span><span>+ ${t.gastos_admin?.toLocaleString('es-MX', { minimumFractionDigits: 2 })}</span></div>}
             {t.incentivos > 0 && <div className="qt-row"><span>Incentivos ({t.pct_incentivos}%)</span><span>+ ${t.incentivos?.toLocaleString('es-MX', { minimumFractionDigits: 2 })}</span></div>}
             <div className="qt-row qt-subtotal"><span>Costo Venta Público</span><span>${t.costo_venta_publico?.toLocaleString('es-MX', { minimumFractionDigits: 2 })}</span></div>
             <div className="qt-row"><span>IVA (16%)</span><span>+ ${t.iva?.toLocaleString('es-MX', { minimumFractionDigits: 2 })}</span></div>
