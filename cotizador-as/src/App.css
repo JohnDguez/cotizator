@@ -326,3 +326,76 @@
   color: var(--text) !important;
 }
 .qt-subtotal span { color: var(--text) !important; }
+
+/* ── SIDEBAR ACTIONS ─────────────────────── */
+.sidebar-actions { display: flex; flex-direction: column; gap: 0.4rem; }
+
+.btn-nueva {
+  background: var(--accent);
+  color: #fff;
+  padding: 0.55rem 0.9rem;
+  display: flex; align-items: center; gap: 0.5rem;
+  font-weight: 600; font-size: 0.82rem;
+  border-radius: 7px; width: 100%;
+}
+.btn-nueva:hover { background: var(--accent2); }
+
+.btn-historial {
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  color: var(--text2);
+  padding: 0.5rem 0.9rem;
+  display: flex; align-items: center; gap: 0.5rem;
+  font-size: 0.82rem;
+  border-radius: 7px; width: 100%;
+}
+.btn-historial:hover, .btn-historial.active {
+  border-color: var(--accent);
+  color: var(--text);
+}
+
+/* ── HISTORIAL ───────────────────────────── */
+.historial-lista {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.historial-empty {
+  font-size: 0.78rem;
+  color: var(--text3);
+  text-align: center;
+  padding: 1rem 0;
+}
+
+.historial-item {
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.65rem 0.75rem;
+  cursor: pointer;
+  position: relative;
+  transition: border-color 0.15s;
+}
+.historial-item:hover { border-color: var(--accent); }
+.historial-item.activa { border-color: var(--accent); background: var(--bg2); }
+
+.hi-folio { font-size: 0.68rem; color: var(--accent2); font-family: monospace; font-weight: 600; }
+.hi-cliente { font-size: 0.82rem; font-weight: 600; color: var(--text); margin-top: 0.1rem; }
+.hi-tipo { font-size: 0.72rem; color: var(--text2); margin-top: 0.1rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 180px; }
+.hi-total { font-size: 0.8rem; font-weight: 700; color: var(--green); margin-top: 0.25rem; }
+.hi-fecha { font-size: 0.68rem; color: var(--text3); margin-top: 0.1rem; }
+
+.hi-del {
+  position: absolute;
+  top: 0.5rem; right: 0.5rem;
+  background: none;
+  color: var(--text3);
+  font-size: 0.7rem;
+  padding: 2px 4px;
+  border-radius: 4px;
+  line-height: 1;
+}
+.hi-del:hover { background: var(--bg); color: var(--accent); }
