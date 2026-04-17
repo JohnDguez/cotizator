@@ -186,7 +186,7 @@ export default function App() {
       guardarHistorial(nuevo)
       return nuevo
     })
-  }, [messages, quote])
+  }, [messages, quote, cliente])
 
   function nuevaCotizacion() {
     setMessages([]); setQuote(null); setCliente(''); setUtilidad(40)
