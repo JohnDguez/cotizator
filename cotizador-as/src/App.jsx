@@ -168,6 +168,7 @@ export default function App() {
   const [fecha] = useState(() => new Date().toLocaleDateString('es-MX'))
   const [vistaHistorial, setVistaHistorial] = useState(false)
   const [imagenes, setImagenes] = useState([]) // [{file, base64, preview, mediaType}]
+  const [dragging, setDragging] = useState(false)
   const messagesEndRef = useRef(null)
   const inputRef = useRef(null)
   const fileInputRef = useRef(null)
@@ -209,19 +210,38 @@ export default function App() {
   }
 
   async function handleImageSelect(e) {
-    const files = Array.from(e.target.files)
-    const nuevas = await Promise.all(files.map(async file => {
+    await procesarArchivos(e.target.files)
+    e.target.value = ''
+  }
+
+  async function procesarArchivos(files) {
+    const imgs = Array.from(files).filter(f => f.type.startsWith('image/'))
+    if (!imgs.length) return
+    const nuevas = await Promise.all(imgs.map(async file => {
       const base64 = await fileToBase64(file)
       const preview = URL.createObjectURL(file)
-      const mediaType = file.type || 'image/jpeg'
-      return { file, base64, preview, mediaType, name: file.name }
+      return { file, base64, preview, mediaType: file.type, name: file.name }
     }))
-    setImagenes(prev => [...prev, ...nuevas].slice(0, 4)) // máx 4 imágenes
-    e.target.value = ''
+    setImagenes(prev => [...prev, ...nuevas].slice(0, 4))
   }
 
   function quitarImagen(idx) {
     setImagenes(prev => prev.filter((_, i) => i !== idx))
+  }
+
+  function handleDragOver(e) {
+    e.preventDefault()
+    setDragging(true)
+  }
+
+  function handleDragLeave(e) {
+    if (!e.currentTarget.contains(e.relatedTarget)) setDragging(false)
+  }
+
+  async function handleDrop(e) {
+    e.preventDefault()
+    setDragging(false)
+    await procesarArchivos(e.dataTransfer.files)
   }
 
   async function sendMessage(text) {
@@ -395,7 +415,23 @@ export default function App() {
       </aside>
 
       {/* ── CHAT ── */}
-      <main className="chat-area">
+      <main className="chat-area"
+        onDragOver={handleDragOver}
+        onDragLeave={handleDragLeave}
+        onDrop={handleDrop}>
+
+        {/* Drag overlay */}
+        {dragging && (
+          <div className="drag-overlay">
+            <div className="drag-overlay-inner">
+              <svg width="40" height="40" viewBox="0 0 20 20" fill="currentColor">
+                <path fillRule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clipRule="evenodd"/>
+              </svg>
+              <span>Suelta la imagen para adjuntarla</span>
+            </div>
+          </div>
+        )}
+
         <div className="chat-messages">
           {messages.length === 0 && (
             <div className="empty-state">
@@ -457,7 +493,7 @@ export default function App() {
           </div>
         )}
 
-        <div className="input-area">
+        <div className={`input-area ${dragging ? "drag-over" : ""}`}>
           <div className="input-wrapper">
             <input type="file" ref={fileInputRef} onChange={handleImageSelect} accept="image/*" multiple hidden />
             <button className="attach-btn" onClick={() => fileInputRef.current?.click()} title="Adjuntar imagen (logo, boceto, tipografía)">

@@ -496,3 +496,53 @@
   padding: 0.2rem 0.5rem;
   border-radius: 4px;
 }
+
+/* ── DRAG & DROP ─────────────────────────── */
+.input-area {
+  transition: background 0.15s;
+}
+.input-area.drag-over {
+  background: rgba(232, 93, 38, 0.06);
+}
+.input-area.drag-over .input-wrapper {
+  border-color: var(--accent);
+}
+.input-area.drag-over::before {
+  content: "Suelta la imagen aquí";
+  display: block;
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--accent2);
+  padding: 0.3rem 0 0;
+  pointer-events: none;
+}
+
+/* ── DRAG OVERLAY ────────────────────────── */
+.chat-area { position: relative; }
+
+.drag-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(232, 93, 38, 0.08);
+  border: 2px dashed var(--accent);
+  border-radius: 8px;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.drag-overlay-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--accent2);
+  font-size: 1rem;
+  font-weight: 600;
+  background: var(--bg2);
+  padding: 2rem 3rem;
+  border-radius: 12px;
+  border: 1px solid var(--accent);
+}
