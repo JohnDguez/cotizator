@@ -177,16 +177,37 @@ export default function App() {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' })
   }, [messages, loading])
 
+  // Usar folio como ID estable siempre
+  const idSesion = sesionActiva || folio
+
   useEffect(() => {
     if (messages.length === 0) return
-    const sesion = { id: sesionActiva || folio, folio, cliente, fecha, messages, quote, updatedAt: Date.now() }
-    setSesionActiva(sesion.id)
+    // Limpiar blob URLs de imágenes antes de guardar (expiran al recargar)
+    const msgsSinBlobs = messages.map(m => {
+      if (!m._display?.imagenes) return m
+      return { ...m, _display: { ...m._display, imagenes: m._display.imagenes.map(i => ({ ...i, preview: null })) } }
+    })
+    const sesion = { id: idSesion, folio, cliente, fecha, messages: msgsSinBlobs, quote, updatedAt: Date.now() }
+    if (!sesionActiva) setSesionActiva(idSesion)
     setHistorial(prev => {
       const nuevo = [sesion, ...prev.filter(s => s.id !== sesion.id)].slice(0, 50)
       guardarHistorial(nuevo)
       return nuevo
     })
-  }, [messages, quote, cliente])
+  }, [messages, quote])
+
+  // Actualizar cliente en historial por separado sin crear duplicados
+  useEffect(() => {
+    if (messages.length === 0) return
+    setHistorial(prev => {
+      const existe = prev.find(s => s.id === idSesion)
+      if (!existe) return prev
+      const actualizada = { ...existe, cliente }
+      const nuevo = [actualizada, ...prev.filter(s => s.id !== idSesion)]
+      guardarHistorial(nuevo)
+      return nuevo
+    })
+  }, [cliente])
 
   function nuevaCotizacion() {
     setMessages([]); setQuote(null); setCliente(''); setUtilidad(40)
