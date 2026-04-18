@@ -167,49 +167,48 @@ export default function App() {
   const [folio, setFolio] = useState(nuevoFolio)
   const [fecha] = useState(() => new Date().toLocaleDateString('es-MX'))
   const [vistaHistorial, setVistaHistorial] = useState(false)
-  const [imagenes, setImagenes] = useState([]) // [{file, base64, preview, mediaType}]
+  const [imagenes, setImagenes] = useState([])
   const [dragging, setDragging] = useState(false)
   const messagesEndRef = useRef(null)
   const inputRef = useRef(null)
   const fileInputRef = useRef(null)
+  const cargandoSesion = useRef(false) // flag para evitar guardar mientras cargamos
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' })
   }, [messages, loading])
 
-  // Usar folio como ID estable siempre
-  const idSesion = sesionActiva || folio
-
-  useEffect(() => {
-    if (messages.length === 0) return
-    // Limpiar blob URLs de imágenes antes de guardar (expiran al recargar)
+  // Función central de guardado — siempre usa el folio como ID estable
+  function guardarSesionActual(overrides = {}) {
+    if (cargandoSesion.current) return
+    const id = sesionActiva || folio
     const msgsSinBlobs = messages.map(m => {
       if (!m._display?.imagenes) return m
       return { ...m, _display: { ...m._display, imagenes: m._display.imagenes.map(i => ({ ...i, preview: null })) } }
     })
-    const sesion = { id: idSesion, folio, cliente, fecha, messages: msgsSinBlobs, quote, updatedAt: Date.now() }
-    if (!sesionActiva) setSesionActiva(idSesion)
+    const sesion = { id, folio, cliente, fecha, messages: msgsSinBlobs, quote, updatedAt: Date.now(), ...overrides }
+    setSesionActiva(id)
     setHistorial(prev => {
-      const nuevo = [sesion, ...prev.filter(s => s.id !== sesion.id)].slice(0, 50)
+      const nuevo = [sesion, ...prev.filter(s => s.id !== id)].slice(0, 50)
       guardarHistorial(nuevo)
       return nuevo
     })
+  }
+
+  // Guardar cuando llegan mensajes o cambia la cotización
+  useEffect(() => {
+    if (messages.length === 0 || cargandoSesion.current) return
+    guardarSesionActual()
   }, [messages, quote])
 
-  // Actualizar cliente en historial por separado sin crear duplicados
+  // Guardar cuando cambia el cliente (solo si hay conversación activa)
   useEffect(() => {
-    if (messages.length === 0) return
-    setHistorial(prev => {
-      const existe = prev.find(s => s.id === idSesion)
-      if (!existe) return prev
-      const actualizada = { ...existe, cliente }
-      const nuevo = [actualizada, ...prev.filter(s => s.id !== idSesion)]
-      guardarHistorial(nuevo)
-      return nuevo
-    })
+    if (messages.length === 0 || cargandoSesion.current) return
+    guardarSesionActual({ cliente })
   }, [cliente])
 
   function nuevaCotizacion() {
+    cargandoSesion.current = false
     setMessages([]); setQuote(null); setCliente(''); setUtilidad(40)
     setFolio(nuevoFolio()); setSesionActiva(null); setVistaHistorial(false)
     setImagenes([])
@@ -217,10 +216,18 @@ export default function App() {
   }
 
   function abrirSesion(sesion) {
-    setMessages(sesion.messages); setQuote(sesion.quote)
-    setCliente(sesion.cliente || ''); setFolio(sesion.folio)
-    setSesionActiva(sesion.id); setVistaHistorial(false)
-    setTimeout(() => messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' }), 100)
+    cargandoSesion.current = true // evita que los useEffect guarden con valores vacíos
+    setMessages(sesion.messages || [])
+    setQuote(sesion.quote || null)
+    setCliente(sesion.cliente || '')
+    setFolio(sesion.folio)
+    setSesionActiva(sesion.id)
+    setVistaHistorial(false)
+    // Desactivar flag después de que React termine de renderizar
+    setTimeout(() => {
+      cargandoSesion.current = false
+      messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' })
+    }, 100)
   }
 
   function eliminarSesion(e, id) {
