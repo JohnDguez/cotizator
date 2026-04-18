@@ -1374,11 +1374,6 @@
       "precio_publico": null,
       "unidad": "hora"
     },
-    {
-      "servicio": "servicio de diseño basico",
-      "costo_as_diseno": 500,
-      "unidad": "diseño"
-    }
   ],
   "categorias": {
     "laminas_acrilicos": "Láminas, acrílicos, PVC, Coroplast",
